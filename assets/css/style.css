@@ -6,6 +6,10 @@ body {
 h1 {
     color: blue;
 }
+.start-container {
+    height: 400px;
+    padding-top: 160px;
+}
 
 .main-content {
     height: 400px;
@@ -13,5 +17,8 @@ h1 {
 
 .questionnaire-main {
     vertical-align: middle;
+}
+.answerBtn {
+    margin: 10px 0 10px 0;
 }
 

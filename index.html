@@ -19,7 +19,12 @@
             <h1>Star Wars Facts Trivia</h1>
         </div>
     </div>
-    <div class="row mt-4 main-content">
+
+    <div class="container text-center start-container">
+        <button class="btn btn-success btn-lg w-50" id="startButton">Start</button>
+    </div>
+
+    <div class="row mt-4 main-content" hidden="hidden">
         <div class="col-12 text-center mt-3" id="question1">
             <div id="timerDiv">
                 <h3>Time Remaining: <span id="timer">30</span> Seconds</h3>
@@ -28,19 +33,17 @@
             </div>
             <div class="container mt-5">
                 <div class="row answersAB">
-                    <div class="col-sm-12 col-md-6">
-                        <button class="btn btn-outline-info w-100" id="answerA">Enterprise</button>
+                    <div class="col-sm-12 col-md-6 answerBtn">
+                        <button class="btn btn-outline-info w-100" id="answerA" value="A">Enterprise</button>
                     </div>
-                    <div class="col-sm-12 col-md-6">
-                        <button class="btn btn-outline-info w-100" id="answerB">Enterprise</button>
+                    <div class="col-sm-12 col-md-6 answerBtn">
+                        <button class="btn btn-outline-info w-100" id="answerB" value="B">Enterprise</button>
                     </div>
-                </div>
-                <div class="row answersAB mt-2">
-                    <div class="col-sm-12 col-md-6">
-                        <button class="btn btn-outline-info w-100" id="answerC">Enterprise</button>
+                    <div class="col-sm-12 col-md-6 answerBtn">
+                        <button class="btn btn-outline-info w-100" id="answerC" value="C">Enterprise</button>
                     </div>
-                    <div class="col-sm-12 col-md-6">
-                        <button class="btn btn-outline-info w-100" id="answerD">Enterprise</button>
+                    <div class="col-sm-12 col-md-6 answerBtn">
+                        <button class="btn btn-outline-info w-100" id="answerD" value="D">Enterprise</button>
                     </div>
                 </div>
 

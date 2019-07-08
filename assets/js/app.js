@@ -8,7 +8,6 @@ const question1 = {
     },
     answer: 'A'
 };
-
 const question2 = {
     q :  "What's the name of Han Solo's ship?",
     options: {
@@ -19,7 +18,6 @@ const question2 = {
     },
     answer: 'A'
 };
-
 const question3 = {
     q :  "Name of Luke's Mother?",
     options: {
@@ -30,7 +28,6 @@ const question3 = {
     },
     answer: 'C'
 };
-
 const question4 = {
     q :  "What color is Mace Windu's lightsaber?",
     options: {
@@ -41,7 +38,6 @@ const question4 = {
     },
     answer: 'D'
 };
-
 const question5= {
   q: "Who killed Qui-Gon?",
   options: {
@@ -52,15 +48,49 @@ const question5= {
   },
     answer: 'D'
 };
-
 const questionsArray = [question1, question2, question3, question4, question5];
 
-var randomNumber = Math.floor(Math.random() * questionsArray.length);
+let currentQuestion = 0;
 
-let timer = new
 
-$('#question').text(questionsArray[randomNumber].q);
-$('#answerA').text(questionsArray[randomNumber].options.A);
-$('#answerB').text(questionsArray[randomNumber].options.B);
-$('#answerC').text(questionsArray[randomNumber].options.C);
-$('#answerD').text(questionsArray[randomNumber].options.D);
+
+
+$('#startButton').on('click', () => {
+   $('.start-container').attr('hidden', true);
+   $('.main-content').attr('hidden', false);
+});
+
+$('.answerBtn').on('click', () => {
+    const questionObject = questionsArray[currentQuestion];
+
+    if (questionObject.answer === event.target.value) {
+        //show correct div with timer
+        console.log('correct');
+    } else {
+        console.log('incorrect');
+    }
+
+    if (currentQuestion < questionsArray.length - 1) {
+        currentQuestion++;
+        updateQuestion(currentQuestion);
+    } else {
+        //show Results
+        console.log('Done');
+    }
+
+});
+
+const updateQuestion = (currentQuestion) => {
+    $('#question').text(questionsArray[currentQuestion].q);
+    $('#answerA').text(questionsArray[currentQuestion].options.A);
+    $('#answerB').text(questionsArray[currentQuestion].options.B);
+    $('#answerC').text(questionsArray[currentQuestion].options.C);
+    $('#answerD').text(questionsArray[currentQuestion].options.D);
+};
+
+updateQuestion(currentQuestion);
+const reset = () => {
+    $('.start-container').attr('hidden', false);
+    $('.main-content').attr('hidden', true);
+    currentQuestion = 0;
+};
