@@ -114,11 +114,10 @@ $('.answerBtn').on('click', (event) => {
 });
 
 const showCorrectIncorrectDiv = (isCorrect) => {
-    console.log(currentQuestion);
     clearInterval(intervalId);
     let answerIs = '';
-    const correctGif = 'https://i.giphy.com/media/l0K4k1O7RJSghST3a/giphy.webp';
-    const incorrectGif = 'https://i.giphy.com/media/3ohuPpdHfJDQIofP4Q/giphy.webp';
+    const correctGif = 'https://media.giphy.com/media/l0K4k1O7RJSghST3a/giphy.gif';
+    const incorrectGif = 'https://media.giphy.com/media/3ohuPpdHfJDQIofP4Q/giphy.gif';
     if (isCorrect) {
         answerIs = 'Correct!';
         $('#gif').attr('src', correctGif);
@@ -131,10 +130,8 @@ const showCorrectIncorrectDiv = (isCorrect) => {
     $('#answeredDiv').attr('hidden', false);
 
     if (currentQuestion < questionsArray.length) {
-        console.log('dismiss(false)');
         dismissAnsweredDiv(false);
     } else {
-        console.log('dismiss(true)');
         dismissAnsweredDiv(true);
     }
 
@@ -150,8 +147,8 @@ const dismissAnsweredDiv = (isGameOver) => {
             startTimer();
         } else {
             const gif = unansweredQuestions+incorrectAnswers >= correctAnswers
-                ? "https://i.giphy.com/media/3h2lUwrZKilQKbAK6f/giphy.webp"
-                : "https://i.giphy.com/media/3owzVR7ig8mn0BFQic/giphy.webp";
+                ? "https://media.giphy.com/media/3h2lUwrZKilQKbAK6f/giphy.gif"
+                : "https://media.giphy.com/media/3owzVR7ig8mn0BFQic/giphy.gif";
 
 
             $('#correctIncorrect').text('Game Over!');
