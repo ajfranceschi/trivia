@@ -1,5 +1,5 @@
 const question1 = {
-    q :  "Who's Darth Vader's Son?",
+    q :  "Who's Darth vader's Son?",
     options: {
         A : 'Luke',
         B : 'Leia',
@@ -13,7 +13,7 @@ const question2 = {
     options: {
         A : 'Millennium Falcon',
         B : 'Enterprise',
-        C : 'X-Factor',
+        C : 'x-Factor',
         D : 'The Millennial'
     },
     answer: 'A'
@@ -21,7 +21,7 @@ const question2 = {
 const question3 = {
     q :  "Name of Luke's Mother?",
     options: {
-        A : 'Bail Organa',
+        A : 'Bail organa',
         B : 'Ahsoka',
         C : 'Padme',
         D : 'Jaina'
@@ -39,7 +39,7 @@ const question4 = {
     answer: 'D'
 };
 const question5= {
-    q: "Who killed Qui-Gon?",
+    q: "Who killed qui-Gon?",
     options: {
         A: 'Yoda',
         B: 'Spooke',
@@ -60,7 +60,7 @@ const question6= {
     answer: 'C'
 };
 const question7= {
-    q: "In what planet did Rey find The Millennium Falcon?",
+    q: "in what planet did Rey find The Millennium Falcon?",
     options: {
         A: 'Hoth',
         B: 'Alderaan',
@@ -173,10 +173,10 @@ const dismissAnsweredDiv = (isGameOver) => {
                 : "https://media.giphy.com/media/3owzVR7ig8mn0BFQic/giphy.gif";
 
 
-            $('#correctIncorrect').text('Game Over!');
+            $('#correctIncorrect').text('Game over!');
             $('#correctAnswers').text(`Correct Answers: ${correctAnswers}`);
-            $('#incorrectAnswers').text(`Incorrect Answers: ${incorrectAnswers}`);
-            $('#unansweredQuestions').text(`Unanswered Questions: ${unansweredQuestions}`);
+            $('#incorrectAnswers').text(`incorrect Answers: ${incorrectAnswers}`);
+            $('#unansweredQuestions').text(`unanswered questions: ${unansweredQuestions}`);
             $('#gif').attr('src', gif);
             $('#resultsDiv').attr('hidden', false);
             $('.startOverButtonDiv').attr('hidden', false);
