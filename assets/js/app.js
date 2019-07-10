@@ -73,7 +73,7 @@ const question7= {
 questionsArray = [question1, question2, question3, question4, question5, question6,question7];
 
 let currentQuestion = 0;
-let counter = 30;
+let counter = 15;
 let intervalId;
 let correctAnswers = 0;
 let incorrectAnswers = 0;
@@ -97,11 +97,12 @@ const startTimer = () => {
             unansweredQuestions++;
             clearInterval(intervalId);
             showCorrectIncorrectDiv(false);
+            updateQuestion(currentQuestion)
         } else {
             $('#timer').text(`Time remaining: ${counter} Seconds`);
         }
     }, 1000);
-    counter = 30;
+    counter = 15;
 };
 
 
@@ -161,7 +162,7 @@ const showCorrectIncorrectDiv = (isCorrect) => {
 };
 
 const dismissAnsweredDiv = (isGameOver) => {
-    $('#timer').text('Time remaining: 30 Seconds');
+    $('#timer').text('Time remaining: 15 Seconds');
     setTimeout(() => {
         if (!isGameOver) {
             $('.main-content').attr('hidden', false);
