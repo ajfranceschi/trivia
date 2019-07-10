@@ -1,10 +1,10 @@
 const question1 = {
-    q :  "Who's Darth's Son?",
+    q :  "Who's Darth Vader's Son?",
     options: {
         A : 'Luke',
         B : 'Leia',
         C : 'Lando',
-        D : 'Chewie'
+        D : 'Chewbacca'
     },
     answer: 'A'
 };
@@ -21,10 +21,10 @@ const question2 = {
 const question3 = {
     q :  "Name of Luke's Mother?",
     options: {
-        A : 'Organa',
-        B : 'Sophia',
+        A : 'Bail Organa',
+        B : 'Ahsoka',
         C : 'Padme',
-        D : 'Juana'
+        D : 'Jaina'
     },
     answer: 'C'
 };
@@ -48,7 +48,29 @@ const question5= {
     },
     answer: 'D'
 };
-questionsArray = [question1, question2, question3, question4, question5];
+
+const question6= {
+    q: "Who was Darth Tyranus' Master?",
+    options: {
+        A: 'Yoda',
+        B: 'Darth Maul',
+        C: 'Darth Sidious',
+        D: 'Mace Windu'
+    },
+    answer: 'C'
+};
+const question7= {
+    q: "In what planet did Rey find The Millennium Falcon?",
+    options: {
+        A: 'Hoth',
+        B: 'Alderaan',
+        C: 'Ahch-To',
+        D: 'Jakku'
+    },
+    answer: 'D'
+};
+
+questionsArray = [question1, question2, question3, question4, question5, question6,question7];
 
 let currentQuestion = 0;
 let counter = 30;
@@ -122,7 +144,7 @@ const showCorrectIncorrectDiv = (isCorrect) => {
         answerIs = 'Correct!';
         $('#gif').attr('src', correctGif);
     } else {
-        answerIs = 'Incorrect';
+        answerIs = 'incorrect';
         $('#gif').attr('src', incorrectGif);
     }
     $('#correctIncorrect').text(answerIs);
