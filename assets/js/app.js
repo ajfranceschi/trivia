@@ -39,25 +39,42 @@ const question4 = {
     answer: 'D'
 };
 const question5= {
-  q: "Who killed Qui-Gon?",
-  options: {
-      A: 'Yoda',
-      B: 'Spooke',
-      C: 'Rey',
-      D: 'Darth Maul'
-  },
+    q: "Who killed Qui-Gon?",
+    options: {
+        A: 'Yoda',
+        B: 'Spooke',
+        C: 'Rey',
+        D: 'Darth Maul'
+    },
     answer: 'D'
 };
-const questionsArray = [question1, question2, question3, question4, question5];
+questionsArray = [question1, question2, question3, question4, question5];
 
 let currentQuestion = 0;
+let counter = 30;
+let intervalId;
+let correctAnswers = 0;
+let incorrectAnswers = 0;
 
-
+const startTimer = (isQuestionResult) => {
+    intervalId = setInterval(() => {
+        counter--;
+        if (counter === 0) {
+            $('#timer').text('Failed!');
+            clearInterval(intervalId);
+            showCorrectIncorrectDiv(false);
+        } else {
+            $('#timer').text(`Time remaining: ${counter} Seconds`);
+        }
+    }, 1000);
+    counter = 30;
+};
 
 
 $('#startButton').on('click', () => {
    $('.start-container').attr('hidden', true);
    $('.main-content').attr('hidden', false);
+   startTimer(false);
 });
 
 $('.answerBtn').on('click', () => {
@@ -65,13 +82,15 @@ $('.answerBtn').on('click', () => {
 
     if (questionObject.answer === event.target.value) {
         //show correct div with timer
-        console.log('correct');
+        showCorrectIncorrectDiv(true);
+        correctAnswers++;
     } else {
-        console.log('incorrect');
+        showCorrectIncorrectDiv(false);
+        incorrectAnswers++;
+
     }
 
     if (currentQuestion < questionsArray.length - 1) {
-        currentQuestion++;
         updateQuestion(currentQuestion);
     } else {
         //show Results
@@ -80,17 +99,52 @@ $('.answerBtn').on('click', () => {
 
 });
 
-const updateQuestion = (currentQuestion) => {
-    $('#question').text(questionsArray[currentQuestion].q);
-    $('#answerA').text(questionsArray[currentQuestion].options.A);
-    $('#answerB').text(questionsArray[currentQuestion].options.B);
-    $('#answerC').text(questionsArray[currentQuestion].options.C);
-    $('#answerD').text(questionsArray[currentQuestion].options.D);
+const showCorrectIncorrectDiv = (isCorrect) => {
+    clearInterval(intervalId);
+    let answerIs = '';
+    const correctGif = 'https://media.giphy.com/media/l0K4k1O7RJSghST3a/giphy.gif';
+    const incorrectGif = 'https://media.giphy.com/media/3ohuPpdHfJDQIofP4Q/giphy.gif';
+    if (isCorrect) {
+        answerIs = 'Correct!';
+        $('#gif').attr('src', correctGif);
+    } else {
+        answerIs = 'Incorrect';
+        $('#gif').attr('src', incorrectGif);
+    }
+    $('#correctIncorrect').text(answerIs);
+    $('.main-content').attr('hidden', true);
+    $('#answeredDiv').attr('hidden', false);
+
+    dismissAnsweredDiv();
+
+};
+
+const dismissAnsweredDiv = () => {
+    $('#timer').text('Time remaining: 30 Seconds');
+    setTimeout(() => {
+        $('.main-content').attr('hidden', false);
+        $('#answeredDiv').attr('hidden', true);
+        startTimer();
+    }, 3000);
+
+
+};
+
+const updateQuestion = (questionNumber) => {
+    $('#question').text(questionsArray[questionNumber].q);
+    $('#answerA').text(questionsArray[questionNumber].options.A);
+    $('#answerB').text(questionsArray[questionNumber].options.B);
+    $('#answerC').text(questionsArray[questionNumber].options.C);
+    $('#answerD').text(questionsArray[questionNumber].options.D);
+    currentQuestion++;
 };
 
 updateQuestion(currentQuestion);
+
 const reset = () => {
     $('.start-container').attr('hidden', false);
     $('.main-content').attr('hidden', true);
     currentQuestion = 0;
+    correctAnswers = 0;
+    incorrectAnswers = 0;
 };
