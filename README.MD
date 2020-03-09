@@ -1,5 +1,5 @@
 # Star Wars Trivia Game
-![SW Trivia Game](/screenshot.png)
+![SW Trivia Game](/screenshot.gif)
 --
 Star Wars Trivia Game is a JavaScript Trivia game in which you get 15 seconds to answer a few Star Wars themed questions.  You'll know whether you correctly answered after selecting each answer, and a total will be shown upon completing the game.
 
